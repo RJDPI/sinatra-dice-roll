@@ -11,10 +11,10 @@ BetterErrors.application_root = __dir__
 BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 
-get ("/") do 
-  "Hello World"
-
+get("/") do
+  erb(:elephant)
 end
+
 
 get("/zebra") do
   "We must add a route for each path we want to support"
@@ -50,9 +50,8 @@ end
 get("/dice/1/20") do
   first_die = rand(1..20)
  
-  sum = first_die 
 	
-  outcome = "You rolled a dice for a total of #{sum}."
+  outcome = "You rolled a #{first_die}."
 	
   "<h1>1d20</h1>
    <p>#{outcome}</p>"
@@ -68,8 +67,8 @@ get("/dice/5/4") do
  
   sum = first_die + second_die + third_die + fourth_die + fifth_die
 	
-  outcome = "You rolled a #{first_die} and a #{second_die} and a #{third_die} and a #{fourth_die} and a #{fifth_die} for a total of #{sum}."
+  outcome = "You rolled a #{first_die}, a #{second_die}, a #{third_die}, a #{fourth_die}, a #{fifth_die} for a total of #{sum}."
 	
-  "<h1>1d20</h1>
+  "<h1>5d4</h1>
    <p>#{outcome}</p>"
 end
